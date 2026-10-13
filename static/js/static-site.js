@@ -10,7 +10,7 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[character]);
 
-  // Adiciona expansão aos comentários longos após os cards serem renderizados.
+  // Adiciona "Ler mais" aos comentários que ultrapassam quatro linhas.
   const prepareTestimonialReadMore = container => {
     if (!container) return;
 
@@ -18,11 +18,20 @@
       if (quote.dataset.readMoreInitialized === "true") return;
       quote.dataset.readMoreInitialized = "true";
 
-      // Mede o texto com e sem o limite visual de quatro linhas.
+      // Define o estado visual explicitamente para não depender de CSS em cache.
+      const setExpanded = expanded => {
+        quote.classList.toggle("is-expanded", expanded);
+        quote.style.display = expanded ? "block" : "-webkit-box";
+        quote.style.webkitBoxOrient = expanded ? "initial" : "vertical";
+        quote.style.webkitLineClamp = expanded ? "unset" : "4";
+        quote.style.overflow = expanded ? "visible" : "hidden";
+      };
+
+      setExpanded(false);
       const collapsedHeight = quote.getBoundingClientRect().height;
-      quote.classList.add("is-expanded");
+      setExpanded(true);
       const expandedHeight = quote.getBoundingClientRect().height;
-      quote.classList.remove("is-expanded");
+      setExpanded(false);
 
       if (expandedHeight <= collapsedHeight + 2) return;
 
@@ -35,7 +44,8 @@
       button.setAttribute("aria-controls", quote.id);
 
       button.addEventListener("click", () => {
-        const expanded = quote.classList.toggle("is-expanded");
+        const expanded = button.getAttribute("aria-expanded") !== "true";
+        setExpanded(expanded);
         button.textContent = expanded ? "Ler menos" : "Ler mais";
         button.setAttribute("aria-expanded", String(expanded));
       });
