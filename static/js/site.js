@@ -72,4 +72,38 @@
     buildDots(); render();
   });
 
+
+  // Exibe "Ler mais" apenas quando o comentário ultrapassa as quatro linhas.
+  const prepareTestimonialReadMore = () => {
+    document.querySelectorAll(".testimonials-section .testimonial-card blockquote").forEach((quote, index) => {
+      if (quote.dataset.readMoreChecked === "true") return;
+      quote.dataset.readMoreChecked = "true";
+
+      const collapsedHeight = quote.getBoundingClientRect().height;
+      quote.classList.add("is-expanded");
+      const expandedHeight = quote.getBoundingClientRect().height;
+      quote.classList.remove("is-expanded");
+
+      if (expandedHeight <= collapsedHeight + 2) return;
+
+      if (!quote.id) quote.id = `testimonial-text-${index + 1}`;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "testimonial-read-more";
+      button.textContent = "Ler mais";
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-controls", quote.id);
+
+      button.addEventListener("click", () => {
+        const expanded = quote.classList.toggle("is-expanded");
+        button.textContent = expanded ? "Ler menos" : "Ler mais";
+        button.setAttribute("aria-expanded", String(expanded));
+      });
+
+      quote.insertAdjacentElement("afterend", button);
+    });
+  };
+
+  prepareTestimonialReadMore();
+
 })();
