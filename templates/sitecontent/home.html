@@ -149,7 +149,7 @@
               </div>
               {% if testimonial.source and "google" in testimonial.source|lower %}<span class="google-review-mark" aria-label="Avaliação do Google">G</span>{% else %}<span class="testimonial-check" aria-label="Depoimento publicado">✓</span>{% endif %}
             </div>
-            {% if testimonial.rating %}<div class="testimonial-rating" aria-label="Avaliação de {{ testimonial.rating }} de 5 estrelas"><span class="testimonial-stars" aria-hidden="true">{% for i in "12345" %}{% if forloop.counter <= testimonial.rating %}★{% else %}☆{% endif %}{% endfor %}</span><span class="rating-number">{{ testimonial.rating }},0</span></div>{% endif %}
+            {% if testimonial.rating %}<div class="testimonial-rating" aria-label="Avaliação de {{ testimonial.rating }} de 5 estrelas"><span class="testimonial-stars" aria-hidden="true">{% for i in "12345" %}{% if forloop.counter <= testimonial.rating %}★{% else %}☆{% endif %}{% endfor %}</span><img class="testimonial-verified-icon" src="{% static 'img/ti-verified.svg' %}" alt="Avaliação verificada" title="Avaliação verificada"><span class="rating-number">{{ testimonial.rating }},0</span></div>{% endif %}
             <span class="quote-mark" aria-hidden="true">“</span>
             <blockquote>{{ testimonial.text }}</blockquote>
           </article>
