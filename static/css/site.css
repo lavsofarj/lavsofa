@@ -425,3 +425,8 @@
   object-fit:contain;
   vertical-align:middle;
 }
+
+
+/* Ícones das três etapas de orçamento */
+.step-icon svg{display:block;width:25px;height:25px}
+.step-icon .step-icon-whatsapp{fill:currentColor}
