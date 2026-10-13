@@ -10,6 +10,40 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[character]);
 
+  // Adiciona expansão aos comentários longos após os cards serem renderizados.
+  const prepareTestimonialReadMore = container => {
+    if (!container) return;
+
+    container.querySelectorAll(".testimonial-card blockquote").forEach((quote, index) => {
+      if (quote.dataset.readMoreInitialized === "true") return;
+      quote.dataset.readMoreInitialized = "true";
+
+      // Mede o texto com e sem o limite visual de quatro linhas.
+      const collapsedHeight = quote.getBoundingClientRect().height;
+      quote.classList.add("is-expanded");
+      const expandedHeight = quote.getBoundingClientRect().height;
+      quote.classList.remove("is-expanded");
+
+      if (expandedHeight <= collapsedHeight + 2) return;
+
+      if (!quote.id) quote.id = `testimonial-text-${index + 1}`;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "testimonial-read-more";
+      button.textContent = "Ler mais";
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-controls", quote.id);
+
+      button.addEventListener("click", () => {
+        const expanded = quote.classList.toggle("is-expanded");
+        button.textContent = expanded ? "Ler menos" : "Ler mais";
+        button.setAttribute("aria-expanded", String(expanded));
+      });
+
+      quote.insertAdjacentElement("afterend", button);
+    });
+  };
+
   document.querySelectorAll("[data-hero-title]").forEach(el => el.textContent = data.heroTitle || "Seu estofado merece cuidado.");
   document.querySelectorAll("[data-hero-subtitle]").forEach(el => el.textContent = data.heroSubtitle || "");
   document.querySelectorAll("[data-service-areas]").forEach(el => el.textContent = data.serviceAreas || "Niterói, São Gonçalo e regiões próximas");
@@ -88,6 +122,7 @@
         ${review.text && review.text.trim() ? `<span class="quote-mark" aria-hidden="true">“</span><blockquote>${escapeHtml(review.text)}</blockquote>` : `<p class="testimonial-no-comment">${rating ? `Avaliação de ${rating} estrelas, sem comentário escrito.` : "Cliente não deixou um comentário escrito."}</p>`}
       </article>`;
     }).join("");
+    prepareTestimonialReadMore(testimonialTrack);
   }
 
   const toggle = document.querySelector(".menu-toggle");
