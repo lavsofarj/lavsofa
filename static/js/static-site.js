@@ -128,7 +128,7 @@
       const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
       return `<article class="testimonial-card">
         <div class="testimonial-card-top"><div class="testimonial-person"><span class="avatar" aria-hidden="true">${escapeHtml((review.customerName || "C").trim().slice(0, 1).toUpperCase())}</span><div class="testimonial-person-details"><strong>${escapeHtml(review.customerName || "Cliente LavSofá")}</strong><small>${escapeHtml(review.source || "Cliente LavSofá")}</small></div></div><span class="testimonial-check" aria-label="Depoimento publicado">✓</span></div>
-        ${rating ? `<div class="testimonial-rating" aria-label="Avaliação de ${rating} de 5 estrelas"><span class="testimonial-stars" aria-hidden="true">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</span><span class="rating-number">${rating},0 de 5</span></div>` : ""}
+        ${rating ? `<div class="testimonial-rating" aria-label="Avaliação de ${rating} de 5 estrelas"><span class="testimonial-stars" aria-hidden="true">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</span><img class="testimonial-verified-icon" src="static/img/ti-verified.svg" alt="Avaliação verificada" title="Avaliação verificada"><span class="rating-number">${rating},0 de 5</span></div>` : ""}
         ${review.text && review.text.trim() ? `<span class="quote-mark" aria-hidden="true">“</span><blockquote>${escapeHtml(review.text)}</blockquote>` : `<p class="testimonial-no-comment">${rating ? `Avaliação de ${rating} estrelas, sem comentário escrito.` : "Cliente não deixou um comentário escrito."}</p>`}
       </article>`;
     }).join("");
