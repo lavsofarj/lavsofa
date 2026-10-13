@@ -1,0 +1,235 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ config.meta_title|default:"LavSofá | Higienização e impermeabilização de estofados" }}</title>
+  <meta name="description" content="{{ config.meta_description|default:'Conheça os serviços da LavSofá e solicite um orçamento pelo WhatsApp.' }}">
+  <meta name="theme-color" content="#1169bd">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ config.meta_title|default:'LavSofá | Higienização e impermeabilização de estofados' }}">
+  <meta property="og:description" content="{{ config.meta_description|default:'Solicite um orçamento pelo WhatsApp.' }}">
+  <link rel="icon" href="{% static 'img/logo-lavsofa.svg' %}">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body data-whatsapp="{{ whatsapp_number }}">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="LavSofá — início"><img src="{% static 'img/logo-lavsofa.svg' %}" alt="Logotipo LavSofá"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a><a href="#trabalhos">Resultados</a><a href="#como-funciona">Como funciona</a>
+      <a class="button button-small" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero section" id="inicio">
+  {% if config.hero_image %}
+  <div class="hero-banner-wrap">
+    <a class="hero-banner-link" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" aria-label="Solicitar orçamento pelo WhatsApp">
+      <img class="hero-banner-image" src="{{ config.hero_image.url }}" alt="{{ config.hero_image_alt|default:'LavSofá — seu estofado limpo, cuidado e pronto para aproveitar melhor o dia a dia' }}">
+    </a>
+  </div>
+  {% else %}
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> LavSofá · Cuidado para seus estofados</span>
+      <h1>{{ config.hero_title|default:"Seu estofado merece cuidado." }}</h1>
+      <p class="hero-lead">{{ config.hero_subtitle|default:"Higienização e impermeabilização de estofados com atendimento em Niterói, São Gonçalo e regiões próximas." }}</p>
+      <div class="hero-actions">
+        <a class="button hero-primary-cta" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"> <span aria-hidden="true">☏</span> Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span></a>
+        <a class="button button-outline" href="#trabalhos">Ver resultados</a>
+      </div>
+      <div class="hero-benefits"><span><b>✓</b> Atendimento personalizado</span><span><b>✓</b> Orçamento sem compromisso</span></div>
+      <p class="service-area"><span aria-hidden="true">⌖</span> {{ config.service_areas|default:"Niterói, São Gonçalo e regiões próximas" }}</p>
+    </div>
+    <div class="hero-visual">
+      {% if config.hero_image %}
+        <img class="hero-photo" src="{{ config.hero_image.url }}" alt="{{ config.hero_image_alt|default:'Serviço realizado pela LavSofá' }}">
+      {% else %}
+        <div class="hero-placeholder">
+          <img src="{% static 'img/logo-lavsofa.svg' %}" alt="LavSofá">
+          <p>Seu estofado limpo, cuidado e pronto para aproveitar melhor o dia a dia.</p>
+        </div>
+      {% endif %}
+      <div class="visual-note"><span class="note-icon">✦</span><span><strong>Cuidado em cada detalhe</strong><small>Peça seu orçamento personalizado</small></span></div>
+      <div class="decor decor-one"></div><div class="decor decor-two"></div>
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+<section class="trust-strip" aria-label="Informações sobre o atendimento">
+  <div class="container trust-inner">
+    <div><span class="trust-icon">✓</span><span><strong>Atendimento regional</strong><small>Niterói, São Gonçalo e regiões próximas</small></span></div>
+    <div><span class="trust-icon">✦</span><span><strong>Serviços especializados</strong><small>Higienização e impermeabilização</small></span></div>
+    <div><span class="trust-icon">↗</span><span><strong>Orçamento pelo WhatsApp</strong><small>Converse diretamente com a equipe</small></span></div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <div class="container">
+    <div class="section-heading">
+      <div><span class="eyebrow">O que fazemos</span><h2>Cuidado que seu estofado merece</h2></div>
+      <p>Conheça nossos serviços e fale com a LavSofá para solicitar um orçamento personalizado.</p>
+    </div>
+    {% if services %}
+    <div class="service-grid">
+      {% for service in services %}
+      <article class="service-card">
+        {% if service.image %}<img class="card-image" src="{{ service.image.url }}" alt="{{ service.alt_text|default:service.name }}" loading="lazy">{% elif service.slug == "higienizacao-de-sofas" %}<img class="card-image" src="https://images.unsplash.com/photo-1646107543597-e95b90ba4081?auto=format&fit=crop&w=900&q=80" alt="Sofá de tecido em uma sala iluminada" loading="lazy">{% elif service.slug == "higienizacao-de-cadeiras" %}<img class="card-image" src="https://images.unsplash.com/photo-1774468725355-bc7662ee1ef1?auto=format&fit=crop&w=900&q=80" alt="Cadeira estofada em ambiente claro" loading="lazy">{% elif service.slug == "higienizacao-de-poltronas" %}<img class="card-image" src="https://images.unsplash.com/photo-1773917734704-a89beb096040?auto=format&fit=crop&w=900&q=80" alt="Poltrona estofada com textura de tecido" loading="lazy">{% elif service.slug == "higienizacao-de-colchoes" %}<img class="card-image" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=900&q=80" alt="Colchão em quarto claro" loading="lazy">{% elif service.slug == "impermeabilizacao-de-estofados" %}<img class="card-image" src="https://images.unsplash.com/photo-1572909103966-181b2f8e7e84?auto=format&fit=crop&w=900&q=80" alt="Estofados de tecido em ambiente residencial" loading="lazy">{% else %}<div class="card-image card-image-empty"><span>LavSofá</span></div>{% endif %}
+        <div class="service-card-body"><h3>{{ service.name }}</h3><p>{{ service.short_description }}</p>{% if service.description %}<p class="service-detail">{{ service.description|truncatewords:24 }}</p>{% endif %}
+          <a class="text-link" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" data-service="{{ service.name }}">Solicitar orçamento <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state"><div class="empty-symbol">✦</div><h3>Conheça nossos serviços</h3><p>Estamos preparando esta seção. Entre em contato para saber mais sobre os serviços da LavSofá.</p><a class="button" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a><small>Cadastre os serviços pelo painel administrativo para exibi-los aqui.</small></div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section section-soft" id="trabalhos">
+  <div class="container">
+    <div class="section-heading">
+      <div><span class="eyebrow">Nosso trabalho</span><h2>Veja a diferença que o cuidado faz</h2></div>
+      <p>Trabalhos reais, atenção aos detalhes e cuidado com cada tipo de tecido. Confira os resultados e peça seu orçamento.</p>
+    </div>
+    {% if portfolio %}
+    <div class="portfolio-grid">
+      {% for item in portfolio %}
+      <article class="portfolio-card">
+        {% if item.before_image and item.after_image %}
+        <div class="before-after">
+          <figure><img src="{{ item.before_image.url }}" alt="Antes: {{ item.image_alt|default:item.title }}" loading="lazy"><figcaption>Antes</figcaption></figure>
+          <figure><img src="{{ item.after_image.url }}" alt="Depois: {{ item.image_alt|default:item.title }}" loading="lazy"><figcaption>Depois</figcaption></figure>
+        </div>
+        {% elif item.cover_image %}
+        <img class="portfolio-image" src="{{ item.cover_image.url }}" alt="{{ item.image_alt|default:item.title }}" loading="lazy">
+        {% elif item.after_image %}
+        <img class="portfolio-image" src="{{ item.after_image.url }}" alt="{{ item.image_alt|default:item.title }}" loading="lazy">
+        {% else %}
+        <div class="portfolio-image card-image-empty"><span>LavSofá</span></div>
+        {% endif %}
+        <div class="portfolio-body">{% if item.service %}<span class="tag">{{ item.service.name }}</span>{% endif %}<h3>{{ item.title }}</h3>{% if item.description %}<p>{{ item.description }}</p>{% endif %}<a class="text-link" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" data-portfolio="{{ item.title }}">Quero recuperar meu estofado <span aria-hidden="true">→</span></a></div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if testimonials %}
+<section class="section testimonials-section" id="depoimentos">
+  <div class="container">
+    <div class="testimonials-heading">
+      <span class="review-kicker">A experiência de quem já contratou</span>
+      <h2><span>Avaliações</span> de nossos clientes</h2>
+      <p>Veja o que os clientes contam sobre o atendimento e os serviços da LavSofá.</p>
+      <div class="reviews-summary" aria-label="Quantidade de avaliações">
+        <div class="reviews-summary-stars" aria-hidden="true">★★★★★</div>
+        <strong>{{ testimonials|length }} {% if testimonials|length == 1 %}avaliação{% else %}avaliações{% endif %}</strong>
+        
+      </div>
+    </div>
+    <div class="testimonials-carousel" data-testimonials-carousel>
+      <button class="carousel-arrow carousel-prev" type="button" aria-label="Ver depoimentos anteriores" data-carousel-prev disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <div class="testimonials-viewport" data-carousel-viewport tabindex="0" aria-label="Carrossel de depoimentos de clientes">
+        <div class="testimonials-track" data-carousel-track>
+          {% for testimonial in testimonials %}
+          <article class="testimonial-card">
+            <div class="testimonial-card-top">
+              <div class="testimonial-person">
+                <span class="avatar" aria-hidden="true">{{ testimonial.customer_name|slice:":1"|upper }}</span>
+                <div class="testimonial-person-details"><strong>{{ testimonial.customer_name }}</strong><small>{% if testimonial.source %}{{ testimonial.source }}{% else %}Cliente LavSofá{% endif %}</small></div>
+              </div>
+              {% if testimonial.source and "google" in testimonial.source|lower %}<span class="google-review-mark" aria-label="Avaliação do Google">G</span>{% else %}<span class="testimonial-check" aria-label="Depoimento publicado">✓</span>{% endif %}
+            </div>
+            {% if testimonial.rating %}<div class="testimonial-rating" aria-label="Avaliação de {{ testimonial.rating }} de 5 estrelas"><span class="testimonial-stars" aria-hidden="true">{% for i in "12345" %}{% if forloop.counter <= testimonial.rating %}★{% else %}☆{% endif %}{% endfor %}</span><span class="rating-number">{{ testimonial.rating }},0</span></div>{% endif %}
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <blockquote>{{ testimonial.text }}</blockquote>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+      <button class="carousel-arrow carousel-next" type="button" aria-label="Ver próximos depoimentos" data-carousel-next><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+    <div class="carousel-footer"><div class="carousel-dots" data-carousel-dots aria-label="Navegação dos depoimentos"></div><span class="carousel-hint">Deslize para ver mais avaliações</span></div>
+    <div class="testimonials-cta"><a class="button testimonial-cta-button" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Quero cuidar do meu estofado <span aria-hidden="true">→</span></a><small>Atendimento rápido via WhatsApp</small></div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section how-section" id="como-funciona">
+  <div class="container">
+    <div class="section-heading">
+      <div><span class="eyebrow">Simples, prático e rápido</span><h2>Seu orçamento em poucos passos</h2></div>
+      <p>Você envia as informações pelo WhatsApp, nossa equipe analisa e envia o orçamento. Sem complicação!</p>
+    </div>
+    <div class="steps-grid">
+      <article class="step-card"><span class="step-number">01</span><div class="step-icon" aria-hidden="true">☏</div><h3>Chame no WhatsApp</h3><p>Entre em contato com nossa equipe para iniciar seu pedido de orçamento.</p></article>
+      <article class="step-card"><span class="step-number">02</span><div class="step-icon" aria-hidden="true">▧</div><h3>Envie foto e região</h3><p>Envie uma foto do item que deseja higienizar ou impermeabilizar e informe o bairro ou a região para atendimento.</p></article>
+      <article class="step-card"><span class="step-number">03</span><div class="step-icon" aria-hidden="true">✓</div><h3>Receba seu orçamento</h3><p>Após analisar as informações, nossa equipe envia o orçamento pelo próprio WhatsApp. Simples e rápido!</p></article>
+    </div>
+    <div class="steps-cta">
+      <p>Pronto para cuidar do seu estofado?</p>
+      <a class="button hero-primary-cta" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Quero meu orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section" id="duvidas">
+  <div class="container faq-layout">
+    <div><span class="eyebrow">Dúvidas frequentes</span><h2>Quer saber mais antes de chamar?</h2><p>Fale com a equipe para entender qual serviço faz mais sentido para o seu estofado.</p><a class="button" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Tirar dúvidas pelo WhatsApp <span aria-hidden="true">↗</span></a></div>
+    <div class="faq-list">
+      <details><summary>Quais estofados vocês atendem?</summary><p>A LavSofá oferece serviços para sofás, cadeiras, poltronas, colchões e impermeabilização de estofados. Consulte a equipe para confirmar a necessidade do seu item.</p></details>
+      <details><summary>Como faço para pedir um orçamento?</summary><p>Clique em qualquer botão de WhatsApp, informe qual é o estofado e, se possível, envie fotos para ajudar na avaliação.</p></details>
+      <details><summary>Em quais regiões vocês atendem?</summary><p>Atendemos Niterói, São Gonçalo e regiões próximas. Consulte a equipe para confirmar a disponibilidade na sua localidade.</p></details>
+      <details><summary>Todas as manchas saem?</summary><p>O resultado depende do tecido, do tipo de mancha e do tempo em que ela está no estofado. A remoção completa não pode ser garantida em todos os casos.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contato">
+  <div class="container contact-panel">
+    <div class="contact-copy"><span class="eyebrow eyebrow-light">Vamos conversar?</span><h2>Seu estofado merece esse cuidado.</h2><p>Entre em contato com a LavSofá e solicite um orçamento personalizado pelo WhatsApp.</p><a class="button button-white" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Solicitar orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a></div>
+    <div class="contact-mark" aria-hidden="true"><span>LS</span><div class="contact-ring"></div></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-main">
+    <div class="footer-brand"><img src="{% static 'img/logo-lavsofa.svg' %}" alt="LavSofá"><p>Higienização e impermeabilização de estofados.</p></div>
+    <div><h3>Navegação</h3><a href="#servicos">Serviços</a><a href="#trabalhos">Resultados</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas frequentes</a></div>
+    <div class="footer-contact"><h3>Fale conosco</h3>
+      <div class="footer-socials" aria-label="Redes sociais e contato">
+        <a class="social-icon social-whatsapp" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" aria-label="Falar com a LavSofá pelo WhatsApp" title="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.3-4.9a8.4 8.4 0 1 1 16.2-3.8Z"/><path d="M8.7 7.8c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.9c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4-.1.6.5.9 1.3 1.7 2.2 2.2.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.3.3.3.5 0 .3-.2 1.2-.8 1.6-.5.4-1.2.6-2 .4-1-.2-2.2-.8-3.5-2-1.1-1-1.9-2.3-2.1-3.2-.2-.8 0-1.6.4-2.1Z"/></svg>
+        </a>
+        <a class="social-icon social-instagram" href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram da LavSofá" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.5" cy="6.7" r="1"/></svg>
+        </a>
+        {% if facebook_url %}
+        <a class="social-icon social-facebook" href="{{ facebook_url }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook da LavSofá" title="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="facebook-mark" d="M14 21v-8h2.7l.4-3.1H14V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v1.8H7.5V13h2.8v8Z"/></svg>
+        </a>
+        {% endif %}
+      </div>
+      <a class="footer-contact-link" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">WhatsApp comercial</a>
+      <a class="footer-contact-link" href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram @lavsofa.rj</a>
+      {% if facebook_url %}<a class="footer-contact-link" href="{{ facebook_url }}" target="_blank" rel="noopener noreferrer">Facebook</a>{% endif %}
+      <p class="footer-service-area"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>{{ config.service_areas|default:"Niterói, São Gonçalo e regiões próximas" }}</span></p>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><span>© {% now "Y" %} LavSofá. Todos os direitos reservados.</span><a href="{% url 'home' %}#privacidade" aria-label="Informações de privacidade">Privacidade</a></div></div>
+</footer>
+<a class="whatsapp-float" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" aria-label="Solicitar orçamento pelo WhatsApp"><span aria-hidden="true">✆</span></a>
+<a class="mobile-sticky-cta" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span></a>
+<script src="{% static 'js/site.js' %}" defer></script>
+</body>
+</html>
