@@ -59,19 +59,19 @@ window.LAVSOFA_DATA = {
   ],
   portfolio: [
     {
-      title: "Higienização de sofá — resultado 1",
+      title: "Higienização de sofá",
       service: "Higienização de sofás",
-      description: "Confira o antes e depois de um serviço de higienização realizado pela LavSofá.",
-      beforeImage: "static/img/Imagem_do_WhatsApp_de_2025-05-31_às_13.16.34_edbfad66.jpg",
-      afterImage: "static/img/Imagem_do_WhatsApp_de_2025-05-31_às_13.16.46_6f8fbbda.jpg",
+      description: "O resultado fala por si! ✨ Uma transformação impressionante que devolveu ao sofá uma aparência renovada, mostrando a diferença que uma higienização profissional pode fazer. O que antes parecia precisar de uma renovação completa ganhou uma nova vida com um cuidado especializado, atenção aos detalhes e dedicação em cada etapa do processo. Na LavSofá, nosso compromisso é cuidar dos seus estofados e transformar a aparência do seu ambiente, proporcionando mais conforto, bem-estar e satisfação. Este antes e depois é a prova visual de como um serviço bem executado pode surpreender! Seu sofá também merece esse cuidado. Entre em contato com a LavSofá e descubra o que podemos fazer pelo seu estofado. 🛋️✨",
+      beforeImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.27.jpeg",
+      afterImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.47.jpeg",
       imageAlt: "Sofá antes e depois da higienização"
     },
     {
-      title: "Higienização de sofá — resultado 2",
+      title: "Higienização de sofá",
       service: "Higienização de sofás",
-      description: "Mais um resultado de cuidado e limpeza de estofados.",
-      beforeImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.27.jpeg",
-      afterImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.47.jpeg",
+      description: "Olha a diferença que uma higienização profissional pode fazer no seu sofá! ✨ A sujeira acumulada, manchas e aquele aspecto de encardido vão embora, devolvendo ao tecido uma aparência muito mais limpa e renovada. 🧼✨ Seu sofá merece esse cuidado! ❤️",
+      beforeImage: "static/img/Imagem_do_WhatsApp_de_2025-05-31_às_13.16.34_edbfad66.jpg",
+      afterImage: "static/img/Imagem_do_WhatsApp_de_2025-05-31_às_13.16.46_6f8fbbda.jpg",
       imageAlt: "Sofá antes e depois da higienização"
     }
   ],
