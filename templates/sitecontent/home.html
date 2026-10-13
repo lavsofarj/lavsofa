@@ -19,7 +19,7 @@
     <a class="brand" href="#inicio" aria-label="LavSofá — início"><img src="{% static 'img/logo-lavsofa.svg' %}" alt="Logotipo LavSofá"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
-      <a href="#servicos">Serviços</a><a href="#trabalhos">Resultados</a><a href="#como-funciona">Como funciona</a>
+      <a href="#servicos">Serviços</a><a href="#trabalhos">Resultados</a>{% if testimonials %}<a href="#avaliacoes">Avaliações</a>{% endif %}<a href="#como-funciona">Como funciona</a>
       <a class="button button-small" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
     </nav>
   </div>
@@ -124,7 +124,7 @@
 </section>
 
 {% if testimonials %}
-<section class="section testimonials-section" id="depoimentos">
+<section class="section testimonials-section" id="avaliacoes">
   <div class="container">
     <div class="testimonials-heading">
       <span class="review-kicker">A experiência de quem já contratou</span>
