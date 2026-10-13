@@ -73,16 +73,28 @@
   });
 
 
-  // Exibe "Ler mais" apenas quando o comentário ultrapassa as quatro linhas.
-  const prepareTestimonialReadMore = () => {
-    document.querySelectorAll(".testimonials-section .testimonial-card blockquote").forEach((quote, index) => {
-      if (quote.dataset.readMoreChecked === "true") return;
-      quote.dataset.readMoreChecked = "true";
+  // Adiciona "Ler mais" aos comentários que ultrapassam quatro linhas.
+  const prepareTestimonialReadMore = container => {
+    if (!container) return;
 
+    container.querySelectorAll(".testimonial-card blockquote").forEach((quote, index) => {
+      if (quote.dataset.readMoreInitialized === "true") return;
+      quote.dataset.readMoreInitialized = "true";
+
+      // Define o estado visual explicitamente para não depender de CSS em cache.
+      const setExpanded = expanded => {
+        quote.classList.toggle("is-expanded", expanded);
+        quote.style.display = expanded ? "block" : "-webkit-box";
+        quote.style.webkitBoxOrient = expanded ? "initial" : "vertical";
+        quote.style.webkitLineClamp = expanded ? "unset" : "4";
+        quote.style.overflow = expanded ? "visible" : "hidden";
+      };
+
+      setExpanded(false);
       const collapsedHeight = quote.getBoundingClientRect().height;
-      quote.classList.add("is-expanded");
+      setExpanded(true);
       const expandedHeight = quote.getBoundingClientRect().height;
-      quote.classList.remove("is-expanded");
+      setExpanded(false);
 
       if (expandedHeight <= collapsedHeight + 2) return;
 
@@ -95,7 +107,8 @@
       button.setAttribute("aria-controls", quote.id);
 
       button.addEventListener("click", () => {
-        const expanded = quote.classList.toggle("is-expanded");
+        const expanded = button.getAttribute("aria-expanded") !== "true";
+        setExpanded(expanded);
         button.textContent = expanded ? "Ler menos" : "Ler mais";
         button.setAttribute("aria-expanded", String(expanded));
       });
@@ -104,6 +117,7 @@
     });
   };
 
-  prepareTestimonialReadMore();
+  prepareTestimonialReadMore(document.querySelector(".testimonials-section"));
+
 
 })();
