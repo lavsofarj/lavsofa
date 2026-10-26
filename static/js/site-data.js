@@ -81,7 +81,8 @@ window.LAVSOFA_DATA = {
       source: "Cliente LavSofá",
       rating: 5,
       text: "Excelente serviço, rápido e com bastante cuidado"
-    },{
+    },
+    {
       customerName: "Taynara Maria",
       source: "Cliente LavSofá",
       rating: 5,
