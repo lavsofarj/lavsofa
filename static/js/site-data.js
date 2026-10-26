@@ -77,6 +77,11 @@ window.LAVSOFA_DATA = {
   ],
   testimonials: [
     {
+      customerName: "Amanda Oliveira",
+      source: "Cliente LavSofá",
+      rating: 5,
+      text: "Excelente serviço, rápido e com bastante cuidado"
+    },{
       customerName: "Taynara Maria",
       source: "Cliente LavSofá",
       rating: 5,
