@@ -61,7 +61,7 @@ window.LAVSOFA_DATA = {
     {
       title: "Higienização de sofá",
       service: "Higienização de sofás",
-      description: "O resultado fala por si! ✨ Uma transformação impressionante que devolveu ao sofá uma aparência renovada, mostrando a diferença que uma higienização profissional pode fazer. O que antes parecia precisar de uma renovação completa ganhou uma nova vida com um cuidado especializado, atenção aos detalhes e dedicação em cada etapa do processo. 🛋️✨",
+      description: "O resultado fala por si! ✨ Uma transformação impressionante que devolveu ao sofá uma aparência renovada, mostrando a diferença que uma higienização profissional pode fazer. O que antes parecia precisar de uma renovação completa ganhou uma nova vida com um cuidado especializado, atenção aos detalhes e dedicação em cada etapa do processo.",
       beforeImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.27.jpeg",
       afterImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.47.jpeg",
       imageAlt: "Sofá antes e depois da higienização"
@@ -69,7 +69,7 @@ window.LAVSOFA_DATA = {
     {
       title: "Higienização de sofá",
       service: "Higienização de sofás",
-      description: "Olha a diferença que uma higienização profissional pode fazer no seu sofá! ✨ A sujeira acumulada, manchas e aquele aspecto de encardido vão embora, devolvendo ao tecido uma aparência muito mais limpa e renovada. 🧼✨ Seu sofá merece esse cuidado! ❤️",
+      description: "Olha a diferença que uma higienização profissional pode fazer no seu sofá! ✨ A sujeira acumulada, manchas e aquele aspecto de encardido vão embora, devolvendo ao tecido uma aparência muito mais limpa e renovada.",
       beforeImage: "static/img/Imagem_do_WhatsApp_de_2025-05-31_às_13.16.34_edbfad66.jpg",
       afterImage: "static/img/Imagem_do_WhatsApp_de_2025-05-31_às_13.16.46_6f8fbbda.jpg",
       imageAlt: "Sofá antes e depois da higienização"
