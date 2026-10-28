@@ -78,8 +78,8 @@ window.LAVSOFA_DATA = {
       title: "Higienização de colchão",
       service: "Higienização de colchões",
       description: "Veja a diferença do antes e depois da higienização! 🛏️✨ A LavSofá remove a sujeira acumulada e ajuda a eliminar ácaros e bactérias, proporcionando mais limpeza, higiene e bem-estar para suas noites de sono.",
-      beforeImage: "static/img/39b615cc-f579-45e6-bc51-98a167f2deb9.jpeg",
-      afterImage: "static/img/21e47974-2122-4329-ab6f-94fb72f8b8c7.jpeg",
+      beforeImage: "static/img/D6526C8D-BD79-4BE1-BD17-98BE7972FC9C.jpeg",
+      afterImage: "static/img/D6526C8D-BD79-4BE1-BD17-98BE7972FC9C2.jpeg",
       imageAlt: "Colchão antes e depois da higienização"
     }
   ],
