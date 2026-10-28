@@ -61,7 +61,7 @@ window.LAVSOFA_DATA = {
     {
       title: "Higienização de sofá",
       service: "Higienização de sofás",
-      description: "O resultado fala por si! ✨ Uma transformação impressionante que devolveu ao sofá uma aparência renovada, mostrando a diferença que uma higienização profissional pode fazer. O que antes parecia precisar de uma renovação completa ganhou uma nova vida com um cuidado especializado, atenção aos detalhes e dedicação em cada etapa do processo. Na LavSofá, nosso compromisso é cuidar dos seus estofados e transformar a aparência do seu ambiente, proporcionando mais conforto, bem-estar e satisfação. Este antes e depois é a prova visual de como um serviço bem executado pode surpreender! Seu sofá também merece esse cuidado. Entre em contato com a LavSofá e descubra o que podemos fazer pelo seu estofado. 🛋️✨",
+      description: "O resultado fala por si! ✨ Uma transformação impressionante que devolveu ao sofá uma aparência renovada, mostrando a diferença que uma higienização profissional pode fazer. O que antes parecia precisar de uma renovação completa ganhou uma nova vida com um cuidado especializado, atenção aos detalhes e dedicação em cada etapa do processo. 🛋️✨",
       beforeImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.27.jpeg",
       afterImage: "static/img/WhatsApp_Image_2026-01-30_at_14.21.47.jpeg",
       imageAlt: "Sofá antes e depois da higienização"
