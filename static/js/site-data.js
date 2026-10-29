@@ -81,6 +81,38 @@ window.LAVSOFA_DATA = {
       beforeImage: "static/img/D6526C8D-BD79-4BE1-BD17-98BE7972FC9C.jpeg",
       afterImage: "static/img/D6526C8D-BD79-4BE1-BD17-98BE7972FC9C2.jpg",
       imageAlt: "Colchão antes e depois da higienização"
+    },
+    {
+      title: "Higienização de sofá",
+      service: "Higienização de sofás",
+      description: "✨ Seu sofá pode ficar assim de novo! ✨ Olha só esse antes e depois da higienização LavSofá 🛋️💙 A higienização remove sujeiras, manchas e resíduos acumulados, devolvendo ao tecido uma aparência muito mais limpa, renovada e agradável. 💦✨",
+      beforeImage: "static/img/Sofá azul antes.jpeg",
+      afterImage: "static/img/Sofá azul depois.jpeg",
+      imageAlt: "Sofá antes e depois da higienização"
+    },
+    {
+      title: "Higienização de sofá",
+      service: "Higienização de sofás",
+      description: "Olha só a diferença! 🛋️ A higienização profissional ajuda a remover a sujeira acumulada, renovar a aparência do tecido e deixar seu sofá muito mais limpo e agradável.",
+      beforeImage: "static/img/sofá vermelho antes.jpeg",
+      afterImage: "static/img/sofá vermelho depois.jpeg",
+      imageAlt: "Sofá antes e depois da higienização"
+    },
+    {
+      title: "Higienização de sofá",
+      service: "Higienização de sofás",
+      description: "✨ Limpeza de verdade faz a diferença! Com o tempo, o sofá acumula poeira, resíduos e sujeiras que nem sempre conseguimos remover na limpeza do dia a dia. A higienização profissional da LavSofá ajuda a remover a sujeira acumulada nas fibras do tecido, deixando seu estofado mais limpo, cuidado e agradável para toda a família! ❤️🛋️",
+      beforeImage: "static/img/Sofá 4 antes aberto.jpeg",
+      afterImage: "static/img/Sofá 4 depois aberto.jpeg",
+      imageAlt: "Sofá antes e depois da higienização"
+    },
+    {
+      title: "Higienização de sofá",
+      service: "Higienização de sofás",
+      description: "A sujeira do dia a dia se acumula no tecido, mesmo quando não conseguimos enxergá-la. Por isso, a higienização profissional é essencial para manter seu estofado limpo e bem cuidado! 🛋️✨",
+      beforeImage: "static/img/sofá 1 antes.jpeg",
+      afterImage: "static/img/sofá 1 depois.jpeg",
+      imageAlt: "Sofá antes e depois da higienização"
     }
   ],
   testimonials: [
