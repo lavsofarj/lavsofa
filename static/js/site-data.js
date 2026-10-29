@@ -83,6 +83,14 @@ window.LAVSOFA_DATA = {
       imageAlt: "Colchão antes e depois da higienização"
     },
     {
+      title: "Higienização de cadeira",
+      service: "Higienização de cadeiras",
+      description: " Suas cadeiras também merecem uma limpeza profunda! No dia a dia, as cadeiras acumulam poeira, manchas e resíduos que podem deixar o tecido com aspecto sujo e desgastado. A higienização remove a sujeira acumulada e ajuda a renovar a aparência das suas cadeiras.",
+      beforeImage: "static/img/cadeira antes.jpeg",
+      afterImage: "static/img/cadeira depois.jpeg",
+      imageAlt: "Cadeira antes e depois da higienização"
+    },
+    {
       title: "Higienização de sofá",
       service: "Higienização de sofás",
       description: "✨ Seu sofá pode ficar assim de novo! ✨ Olha só esse antes e depois da higienização LavSofá 🛋️💙 A higienização remove sujeiras, manchas e resíduos acumulados, devolvendo ao tecido uma aparência muito mais limpa, renovada e agradável. 💦✨",
@@ -113,6 +121,14 @@ window.LAVSOFA_DATA = {
       beforeImage: "static/img/sofá 1 antes.jpeg",
       afterImage: "static/img/sofá 1 depois.jpeg",
       imageAlt: "Sofá antes e depois da higienização"
+    },
+    {
+      title: "Higienização de cadeira",
+      service: "Higienização de cadeiras",
+      description: "Manchas nas cadeiras? 🪑✨ A higienização profissional da LavSofá ajuda a remover a sujeira acumulada e reduzir manchas causadas pelo uso diário, devolvendo ao tecido uma aparência mais limpa e bem cuidada. 🧼❤️ Cada cadeira recebe o tratamento adequado ao seu tecido, pois os resultados variam conforme o tipo e a intensidade da mancha.",
+      beforeImage: "static/img/cadeira 2 antes.jpeg",
+      afterImage: "static/img/cadeira 2 depois.jpeg",
+      imageAlt: "Cadeira antes e depois da higienização"
     }
   ],
   testimonials: [
